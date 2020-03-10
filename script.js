@@ -1,4 +1,4 @@
-let container = document.getElementById("");
+let container = document.getElementById("container");
 let calculator = document.getElementById("calculator");
 
 let display = document.getElementById("display");
@@ -28,13 +28,13 @@ function displayNumber() {
 for (let i = 0; i < numberBtns.length; i++) {
   numberBtns[i].addEventListener("click", displayNumber);
 }
-let factorBtns = [];
-factorBtns.push(plus, minus, multiply, divide);
-function displayFactor() {
+let operatorBtns = [];
+operatorBtns.push(plus, minus, multiply, divide);
+function displayOperator() {
   console.log(this.innerText);
 }
-for (let j = 0; j < factorBtns.length; j++) {
-  factorBtns[j].addEventListener("click", displayFactor);
+for (let j = 0; j < operatorBtns.length; j++) {
+  operatorBtns[j].addEventListener("click", displayOperator);
 }
 equals.addEventListener("click", displayNumber);
 clear.addEventListener("click", displayNumber);
