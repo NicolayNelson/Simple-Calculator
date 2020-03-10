@@ -24,6 +24,7 @@ let numberBtns = [];
 numberBtns.push(zero, one, two, three, four, five, six, seven, eight, nine);
 function displayNumber() {
   console.log(this.innerText);
+  display.innerText += this.innerText;
 }
 for (let i = 0; i < numberBtns.length; i++) {
   numberBtns[i].addEventListener("click", displayNumber);
