@@ -33,6 +33,7 @@ let operatorBtns = [];
 operatorBtns.push(plus, minus, multiply, divide);
 function displayOperator() {
   console.log(this.innerText);
+  display.innerText += this.innerText;
 }
 for (let j = 0; j < operatorBtns.length; j++) {
   operatorBtns[j].addEventListener("click", displayOperator);
