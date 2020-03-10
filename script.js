@@ -1,4 +1,4 @@
-let container = document.getElementById("")
+let container = document.getElementById("");
 let calculator = document.getElementById("calculator");
 
 let display = document.getElementById("display");
@@ -18,21 +18,24 @@ let minus = document.getElementById("button-minus");
 let multiply = document.getElementById("button-multiply");
 let divide = document.getElementById("button-divide");
 let equals = document.getElementById("button-equals");
-let clear= document.getElementById("button-clear");
+let clear = document.getElementById("button-clear");
 
 let numberBtns = [];
-numberBtns.push (zero,one,two,three,four,five,six,seven,eight,nine);
-function displayNumber () {
-    console.log(this.innerText);
+numberBtns.push(zero, one, two, three, four, five, six, seven, eight, nine);
+function displayNumber() {
+  console.log(this.innerText);
 }
 for (let i = 0; i < numberBtns.length; i++) {
-    numberBtns[i].addEventListener("click", displayNumber);
+  numberBtns[i].addEventListener("click", displayNumber);
 }
 let factorBtns = [];
-factorBtns.push (plus,minus,multiply,divide,equals);
+factorBtns.push(plus, minus, multiply, divide);
 function displayFactor() {
-    console.log(this.innerText);
+  console.log(this.innerText);
 }
 for (let j = 0; j < factorBtns.length; j++) {
-    factorBtns[j].addEventListener("click", displayFactor);
+  factorBtns[j].addEventListener("click", displayFactor);
 }
+equals.addEventListener("click", displayNumber);
+clear.addEventListener("click", displayNumber);
+display.addEventListener("click", displayNumber);
