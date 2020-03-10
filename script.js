@@ -20,6 +20,3 @@ let divide = document.getElementById("button-divide");
 let equals = document.getElementById("button-equals");
 let clear= document.getElementById("button-clear");
 
-function one () {
-    document
-}
