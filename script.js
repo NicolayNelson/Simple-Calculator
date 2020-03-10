@@ -28,3 +28,11 @@ function displayNumber () {
 for (let i = 0; i < numberBtns.length; i++) {
     numberBtns[i].addEventListener("click", displayNumber);
 }
+let factorBtns = [];
+factorBtns.push (plus,minus,multiply,divide,equals);
+function displayFactor() {
+    console.log(this.innerText);
+}
+for (let j = 0; j < factorBtns.length; j++) {
+    factorBtns[j].addEventListener("click", displayFactor);
+}
