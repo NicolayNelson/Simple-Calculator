@@ -40,10 +40,15 @@ function displayOperator() {
 for (let j = 0; j < operatorBtns.length; j++) {
   operatorBtns[j].addEventListener("click", displayOperator);
 }
-display.addEventListener("click", displayNumber);
 zero.addEventListener ("click", displayNumber);
 
-equals.addEventListener("click", displayNumber);
+
+
+
+equals.addEventListener("click", displayEquals);
+
+
+
 
 
 
