@@ -20,8 +20,10 @@ let divide = document.getElementById("button-divide");
 let equals = document.getElementById("button-equals");
 let clear = document.getElementById("button-clear");
 
+
+
 let numberBtns = [];
-numberBtns.push(zero, one, two, three, four, five, six, seven, eight, nine);
+numberBtns.push(one, two, three, four, five, six, seven, eight, nine);
 function displayNumber() {
   console.log(this.innerText);
   display.innerText += this.innerText;
@@ -38,6 +40,17 @@ function displayOperator() {
 for (let j = 0; j < operatorBtns.length; j++) {
   operatorBtns[j].addEventListener("click", displayOperator);
 }
-equals.addEventListener("click", displayNumber);
-clear.addEventListener("click", displayNumber);
 display.addEventListener("click", displayNumber);
+zero.addEventListener ("click", displayNumber);
+
+equals.addEventListener("click", displayNumber);
+
+
+
+clear.addEventListener("click", displayClear);
+function displayClear(){
+  console.log(this.innerText);
+  display.innerText += this.innerText;
+  if(display.innerText = null) {
+  displayClear.preventDefault();
+}}
