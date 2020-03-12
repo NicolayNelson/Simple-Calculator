@@ -135,10 +135,12 @@ function displayClear() {
   display.innerText = "";
   enableNumberBtns();
   enableOperatorBtns();
+  enableEquals();
   firstItem = "";
   secondItem = "";
   operator = "";
   firstNumberEntered = false;
+  
 }
 
 // for (let n = 0; n < firstItem.length; n++) {
