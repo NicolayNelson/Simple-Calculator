@@ -140,5 +140,4 @@ function displayClear() {
   secondItem = "";
   operator = "";
   firstNumberEntered = false;
-  
 }
