@@ -142,9 +142,3 @@ function displayClear() {
   firstNumberEntered = false;
   
 }
-
-// for (let n = 0; n < firstItem.length; n++) {
-//   firstItem.addEventListener("click", displayNumber);
-// }
-// if (display.innerText != null); {
-//   firstItem[n].removeEventListener("click", firstItem);
