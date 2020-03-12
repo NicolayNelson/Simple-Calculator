@@ -20,7 +20,12 @@ let divide = document.getElementById("button-divide");
 let equals = document.getElementById("button-equals");
 let clear = document.getElementById("button-clear");
 
+let last = document.getElementById("last-result");
+let lastDis = document.getElementById("last-result-display");
 
+if (display.innerText = 0) {
+    display.innerText = null;
+}
 
 let numberBtns = [];
 numberBtns.push(one, two, three, four, five, six, seven, eight, nine);
@@ -40,16 +45,30 @@ function displayOperator() {
 for (let j = 0; j < operatorBtns.length; j++) {
   operatorBtns[j].addEventListener("click", displayOperator);
 }
-zero.addEventListener ("click", displayNumber);
 
+zero.addEventListener ("click", displayZero);
+function displayZero(){
+  console.log(this.innerText);
+  display.innerText += this.innerText;
+}
 
-
+let firstItem = [];
+firstItem.push(zero,plus,multiply,divide,equals);
+function firstItemNumber () {
+  if (display.innerText = null); {
+    window.removeEventListener("click", display.innerText);
+  }
+  console.log(this.innerText);
+  display.innerText != this.innerText;
+}
 
 equals.addEventListener("click", displayEquals);
-
-
-
-
+function displayEquals () {
+  console.log(this.innerText);
+  display.innerText += this.innerText; {
+  window.removeEventListener("click", numberBtns)
+  };
+}
 
 
 clear.addEventListener("click", displayClear);
@@ -57,5 +76,11 @@ function displayClear(){
   console.log(this.innerText);
   display.innerText += this.innerText;
   if(display.innerText = null) {
-  displayClear.preventDefault();
-}}
+    displayClear.preventDefault();
+  }}
+  
+  // for (let n = 0; n < firstItem.length; n++) {
+  //   firstItem.addEventListener("click", displayNumber);
+  // }
+  // if (display.innerText != null); {
+  //   firstItem[n].removeEventListener("click", firstItem);
