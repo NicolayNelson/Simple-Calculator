@@ -23,64 +23,116 @@ let clear = document.getElementById("button-clear");
 let last = document.getElementById("last-result");
 let lastDis = document.getElementById("last-result-display");
 
-if (display.innerText = 0) {
-    display.innerText = null;
-}
-
 let numberBtns = [];
-numberBtns.push(one, two, three, four, five, six, seven, eight, nine);
+numberBtns.push(zero, one, two, three, four, five, six, seven, eight, nine);
+
+let operatorBtns = [];
+operatorBtns.push(plus, minus, multiply, divide);
+
+equals.addEventListener("click", displayEquals);
+
+clear.addEventListener("click", displayClear);
+
+enableNumberBtns();
+enableOperatorBtns();
+
+let firstItem = "";
+let secondItem = "";
+let operator = "";
+let firstNumberEntered = false;
+let isOperator = false;
+let secondNumberEntered = false;
+
 function displayNumber() {
   console.log(this.innerText);
   display.innerText += this.innerText;
+  if (firstNumberEntered) {
+    secondItem += this.innerText;
+  } else {
+    firstItem += this.innerText;
+  }
 }
-for (let i = 0; i < numberBtns.length; i++) {
-  numberBtns[i].addEventListener("click", displayNumber);
-}
-let operatorBtns = [];
-operatorBtns.push(plus, minus, multiply, divide);
+
 function displayOperator() {
   console.log(this.innerText);
   display.innerText += this.innerText;
-}
-for (let j = 0; j < operatorBtns.length; j++) {
-  operatorBtns[j].addEventListener("click", displayOperator);
+  if (firstItem != "") {
+    operator = this.innerText;
+    firstNumberEntered = true;
+    isOperator = true;
+    disableOperatorBtns();
+  }
 }
 
-zero.addEventListener ("click", displayZero);
-function displayZero(){
+function displayEquals() {
   console.log(this.innerText);
   display.innerText += this.innerText;
+  disableNumberBtns();
+  disableOperatorBtns();
+  if (secondItem != "") {
+    equals = this.innerText;
+    firstNumberEntered = true;
+    isOperator = true;
+    secondNumberEntered = true;
+    disableNumberBtns();
+    disableOperatorBtns();
+    disableEquals();
+  }
 }
 
-let firstItem = [];
-firstItem.push(zero,plus,multiply,divide,equals);
-function firstItemNumber () {
-  if (display.innerText = null); {
+function firstItemNumber() {
+  if ((display.innerText = null));
+  {
     window.removeEventListener("click", display.innerText);
   }
   console.log(this.innerText);
   display.innerText != this.innerText;
 }
 
-equals.addEventListener("click", displayEquals);
-function displayEquals () {
-  console.log(this.innerText);
-  display.innerText += this.innerText; {
-  window.removeEventListener("click", numberBtns)
-  };
+function enableNumberBtns() {
+  for (let i = 0; i < numberBtns.length; i++) {
+    numberBtns[i].addEventListener("click", displayNumber);
+  }
 }
 
+function disableNumberBtns() {
+  for (let i = 0; i < numberBtns.length; i++) {
+    numberBtns[i].removeEventListener("click", displayNumber);
+  }
+}
 
-clear.addEventListener("click", displayClear);
-function displayClear(){
-  console.log(this.innerText);
-  display.innerText += this.innerText;
-  if(display.innerText = null) {
-    displayClear.preventDefault();
-  }}
-  
-  // for (let n = 0; n < firstItem.length; n++) {
-  //   firstItem.addEventListener("click", displayNumber);
-  // }
-  // if (display.innerText != null); {
-  //   firstItem[n].removeEventListener("click", firstItem);
+function enableOperatorBtns() {
+  for (let j = 0; j < operatorBtns.length; j++) {
+    operatorBtns[j].addEventListener("click", displayOperator);
+  }
+}
+
+function disableOperatorBtns() {
+  for (let j = 0; j < operatorBtns.length; j++) {
+    operatorBtns[j].removeEventListener("click", displayOperator);
+  }
+}
+
+function enableEquals() {
+    displayEquals.addEventListener("click", displayEquals);
+  }
+
+  function disableEquals() {
+    displayEquals.removeEventListener("click", displayEquals);
+  }
+
+function displayClear() {
+  display.innerText = "";
+  enableNumberBtns();
+  enableOperatorBtns();
+  firstItem = "";
+  secondItem = "";
+  operator = "";
+  firstNumberEntered = false;
+}
+
+// for (let n = 0; n < firstItem.length; n++) {
+//   firstItem.addEventListener("click", displayNumber);
+// }
+// if (display.innerText != null); {
+//   firstItem[n].removeEventListener("click", firstItem);
