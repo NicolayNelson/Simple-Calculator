@@ -42,11 +42,13 @@ let operator = "";
 let firstNumberEntered = false;
 let isOperator = false;
 let secondNumberEntered = false;
+let result = null;
 
 function displayNumber() {
   console.log(this.innerText);
   display.innerText += this.innerText;
   if (firstNumberEntered) {
+    secondNumberEntered = true;
     secondItem += this.innerText;
   } else {
     firstItem += this.innerText;
@@ -55,8 +57,8 @@ function displayNumber() {
 
 function displayOperator() {
   console.log(this.innerText);
-  display.innerText += this.innerText;
   if (firstItem != "") {
+    display.innerText += this.innerText;
     operator = this.innerText;
     firstNumberEntered = true;
     isOperator = true;
@@ -65,23 +67,31 @@ function displayOperator() {
 }
 
 function displayEquals() {
-  console.log(this.innerText);
-  display.innerText += this.innerText;
-  disableNumberBtns();
-  disableOperatorBtns();
-  if (secondItem != "") {
-    equals = this.innerText;
-    firstNumberEntered = true;
-    isOperator = true;
-    secondNumberEntered = true;
+  if (secondNumberEntered) {
+    console.log(this.innerText);
+    display.innerText += this.innerText;
     disableNumberBtns();
     disableOperatorBtns();
     disableEquals();
+
+    calculate();
   }
+}
+function calculate() {
+  if (operator == "-") {
+    result = parseInt(firstItem) - parseInt(secondItem);
+  } else if (operator == "+") {
+    result = parseInt(firstItem) + parseInt(secondItem);
+  } else if (operator == "/") {
+    result = parseInt(firstItem) / parseInt(secondItem);
+  } else if (operator == "*") {
+    result = parseInt(firstItem) * parseInt(secondItem);
+  }
+  display.innerText += result;
 }
 
 function firstItemNumber() {
-  if ((display.innerText = null));
+  if (display.innerText == null);
   {
     window.removeEventListener("click", display.innerText);
   }
@@ -114,25 +124,21 @@ function disableOperatorBtns() {
 }
 
 function enableEquals() {
-    displayEquals.addEventListener("click", displayEquals);
-  }
+  equals.addEventListener("click", displayEquals);
+}
 
-  function disableEquals() {
-    displayEquals.removeEventListener("click", displayEquals);
-  }
+function disableEquals() {
+  equals.removeEventListener("click", displayEquals);
+}
 
 function displayClear() {
   display.innerText = "";
   enableNumberBtns();
   enableOperatorBtns();
+  enableEquals();
   firstItem = "";
   secondItem = "";
   operator = "";
   firstNumberEntered = false;
+  
 }
-
-// for (let n = 0; n < firstItem.length; n++) {
-//   firstItem.addEventListener("click", displayNumber);
-// }
-// if (display.innerText != null); {
-//   firstItem[n].removeEventListener("click", firstItem);
