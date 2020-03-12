@@ -82,6 +82,10 @@ function calculate() {
     result = parseInt(firstItem) - parseInt(secondItem);
   } else if (operator == "+") {
     result = parseInt(firstItem) + parseInt(secondItem);
+  } else if (operator == "/") {
+    result = parseInt(firstItem) / parseInt(secondItem);
+  } else if (operator == "*") {
+    result = parseInt(firstItem) * parseInt(secondItem);
   }
   display.innerText += result;
 }
